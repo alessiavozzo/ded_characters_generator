@@ -4,6 +4,13 @@
     <section id="current-series" class="bg-dark">
         <div class="container py-4">
 
+            @if (session('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {{ session('message') }}
+                </div>
+            @endif
+
             <div class="d-flex justify-content-end align-items-center mb-3">
                 <a class="btn btn-primary" href="{{ route('admin.items.create') }}"> Add new item</a>
             </div>

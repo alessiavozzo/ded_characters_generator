@@ -33,7 +33,7 @@ class ItemController extends Controller
     {
         $validated =  $request->validated();
         Item::create($validated);
-        return to_route('admin.items.index');
+        return to_route('admin.items.index')->with('message', 'Item created successfully');
     }
 
     /**
@@ -59,7 +59,7 @@ class ItemController extends Controller
     {
         $validated =  $request->validated();
         $item->update($validated);
-        return to_route('admin.items.index');
+        return to_route('admin.items.index')->with('message', "Item $item->name updated successfully");
     }
 
     /**
@@ -68,6 +68,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
-        return to_route('admin.items.index');
+        return to_route('admin.items.index')->with('message', "Item $item->name deleted successfully");;
     }
 }
