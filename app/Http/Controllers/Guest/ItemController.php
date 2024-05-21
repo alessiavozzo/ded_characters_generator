@@ -13,9 +13,4 @@ class ItemController extends Controller
         $items = Item::all();
         return view('guests.home', compact('items'));
     }
-
-
-
-
-    
 }
