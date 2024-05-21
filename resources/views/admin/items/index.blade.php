@@ -5,7 +5,7 @@
         <div class="container py-4">
 
             <div class="d-flex justify-content-end align-items-center mb-3">
-                <a class="btn btn-primary" href="{{ route('admin.items.create') }}"> Add new character </a>
+                <a class="btn btn-primary" href="{{ route('admin.items.create') }}"> Add new item</a>
             </div>
 
             <div class="table-responsive rounded">
