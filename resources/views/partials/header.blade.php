@@ -14,10 +14,6 @@
                             href="{{ route('admin.characters.index') }}" aria-current="page">Characters
                             <span class="visually-hidden">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() === 'home' ? 'active' : '' }}"
-                            href="{{ route('home') }}">Items</a>
-                    </li>
                 </ul>
             </div>
         </div>

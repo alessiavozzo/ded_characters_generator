@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Guest\ItemController;
+use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [ItemController::class, 'home'])->name('home');
 
 /* Route::resource('/characters', CharacterController::class);
 
@@ -30,13 +29,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::middleware(['auth', 'verified'])
-->name('admin.')
-->prefix('admin')
-->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/characters', CharacterController::class);
-    /* Route::get('/', [ItemController::class, 'home'])->name('home'); */
-});
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('/characters', CharacterController::class);
+        Route::resource('items', ItemController::class);
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,4 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
