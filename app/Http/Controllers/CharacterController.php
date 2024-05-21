@@ -13,7 +13,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        return view('characters.index', ['characters' => Character::paginate()]);
+        return view('admin.characters.index', ['characters' => Character::paginate()]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        return view('admin.characters.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class CharacterController extends Controller
         //$data = $request->all();
         Character::create($val_data);
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -51,7 +51,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('characters.edit', compact('character'));
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
@@ -62,7 +62,7 @@ class CharacterController extends Controller
         $val_data = $request->validated();
         $character->update($val_data);
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 
     /**
@@ -72,6 +72,6 @@ class CharacterController extends Controller
     {
         $character->delete();
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 }
