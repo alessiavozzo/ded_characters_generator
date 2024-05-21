@@ -1,6 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="items_header bg-dark py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2 class="text-light">{{ $item->name }}</h2>
+            <div class="actions">
+                <a class="btn btn-warning" href="{{ route('admin.items.edit', $item) }}">
+                    Edit
+                </a>
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modalId-{{ $item->id }}">
+                    Delete
+                </button>
+                @include('partials.modal-items')
+            </div>
+        </div>
+    </div>
     <div class="container py-3">
         <div class="col-4">
             <div class="card">
