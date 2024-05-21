@@ -41,22 +41,21 @@
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                     {{-- edit single character --}}
-                                    {{-- <a class="btn btn-warning" href="{{ route('admin.items.edit', $item) }}">
+                                    <a class="btn btn-warning" href="{{ route('admin.items.edit', $item) }}">
                                         <i class="fa-solid fa-pencil"></i>
-                                    </a> --}}
+                                    </a>
                                     {{-- delete single character --}}
                                     <!-- Modal trigger button -->
-                                    {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalId-{{ $item->id }}">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
-                                    @include('partials.modal') --}}
+                                    @include('partials.modal-items')
 
                                 </td>
 
                             </tr>
                         @empty
-
                             <tr class="">
                                 <td scope="row" colspan="7">Nothing to show</td>
                             </tr>
