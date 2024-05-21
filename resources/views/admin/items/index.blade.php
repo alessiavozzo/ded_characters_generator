@@ -16,7 +16,7 @@
             </div>
 
             <div class="table-responsive rounded">
-                <table class="table table-danger table-hover table-bordered">
+                <table class="table table-light table-hover table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

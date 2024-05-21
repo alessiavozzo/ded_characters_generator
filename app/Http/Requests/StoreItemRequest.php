@@ -23,7 +23,6 @@ class StoreItemRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required',
             'type' => 'required',
             'category' => 'required',
             'weight' => 'required',
