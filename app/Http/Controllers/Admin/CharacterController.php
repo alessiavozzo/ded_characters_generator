@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Requests\UpdateCharacterRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
+use App\Models\Item;
 
 class CharacterController extends Controller
 {
@@ -23,8 +24,9 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        $types=Type::all();
-        return view('admin.characters.create', compact('types'));
+        $types = Type::all();
+        $items = Item::all();
+        return view('admin.characters.create', compact('types', 'items'));
     }
 
     /**
@@ -36,7 +38,12 @@ class CharacterController extends Controller
 
         //dd($request->all());
         //$data = $request->all();
-        Character::create($val_data);
+        $character = Character::create($val_data);
+
+        if ($request->has('items')) {
+            $character->items()->attach($val_data['items']);
+        }
+
 
         return to_route('admin.characters.index');
     }
