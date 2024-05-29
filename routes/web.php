@@ -34,7 +34,9 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('/characters', CharacterController::class);
-        Route::resource('items', ItemController::class);
+        Route::resource('items', ItemController::class)->parameters([
+            'items' => 'item:slug'
+        ]);
     });
 
 Route::middleware('auth')->group(function () {

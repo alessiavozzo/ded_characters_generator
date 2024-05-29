@@ -7,6 +7,7 @@ use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ItemController extends Controller
 {
@@ -32,6 +33,8 @@ class ItemController extends Controller
     public function store(StoreItemRequest $request)
     {
         $validated =  $request->validated();
+        $slug = Str::slug($request->name, '-');
+        $validated['slug'] = $slug;
         Item::create($validated);
         return to_route('admin.items.index')->with('message', 'Item created successfully');
     }
@@ -58,6 +61,8 @@ class ItemController extends Controller
     public function update(UpdateItemRequest $request, Item $item)
     {
         $validated =  $request->validated();
+        $slug = Str::slug($request->name, '-');
+        $validated['slug'] = $slug;
         $item->update($validated);
         return to_route('admin.items.index')->with('message', "Item $item->name updated successfully");
     }

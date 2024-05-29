@@ -19,7 +19,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="slug" class="form-label">slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug"
                     aria-describedby="helpId" placeholder="" value="{{ old('slug', $item->slug) }}" required />
@@ -28,7 +28,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+ --}}
             <div class="mb-3">
                 <label for="type" class="form-label">type</label>
                 <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type"

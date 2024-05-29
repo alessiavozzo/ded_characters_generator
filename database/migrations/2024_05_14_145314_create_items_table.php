@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 25);
             $table->string('slug', 25);
-            $table->string('type', 25);
-            $table->string('category', 30);
-            $table->string('weight', 30);
-            $table->string('cost', 10);
+            $table->string('type', 25)->nullable();
+            $table->string('category', 30)->nullable();
+            $table->string('weight', 30)->nullable();
+            $table->string('cost', 10)->nullable();
             $table->string('damage_dice', 5);
             $table->timestamps();
         });
