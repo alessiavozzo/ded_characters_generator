@@ -14,6 +14,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">NAME</th>
+                            <th scope="col">TYPE</th>
                             <th scope="col">DESCRIPTION</th>
                             <th scope="col">ATTACK</th>
                             <th scope="col">DEFENSE</th>
@@ -26,6 +27,7 @@
                             <tr class="align-middle">
                                 <td scope="row">{{ $character->id }}</td>
                                 <td>{{ $character->name }}</td>
+                                <td>{{ $character->type?->name }}</td>
                                 <td>{{ $character->description }}</td>
                                 <td>{{ $character->attack }}</td>
                                 <td>{{ $character->defense }}</td>

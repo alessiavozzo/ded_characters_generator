@@ -18,6 +18,18 @@
             </div>
 
             <div class="mb-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select" name="type_id" id="type_id">
+                    <option selected disabled>Select type</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>
+                            {{ $type->name }}</option>
+                    @endforeach
+                </select>
+
+            </div>
+
+            <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
                     rows="7">{{ old('description') }}</textarea>
