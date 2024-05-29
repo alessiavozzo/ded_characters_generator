@@ -19,6 +19,10 @@
                         <div class="card-text">
                             {{ $character->speed }}
                         </div>
+                        <div class="card-text">
+                            {{ $character->type?->name }}
+                        </div>
+
                     </div>
                 </div>
             </div>
