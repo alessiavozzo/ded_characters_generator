@@ -10,6 +10,7 @@ use App\Models\Character;
 class Type extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'desc', 'slug'];
 
     /**
      * Get all of the comments for the Type
