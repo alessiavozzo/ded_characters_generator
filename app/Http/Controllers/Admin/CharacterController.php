@@ -62,7 +62,8 @@ class CharacterController extends Controller
     public function edit(Character $character)
     {
         $types = Type::all();
-        return view('admin.characters.edit', compact('character', 'types'));
+        $items = Item::all();
+        return view('admin.characters.edit', compact('character', 'types', 'items'));
     }
 
     /**
@@ -70,7 +71,13 @@ class CharacterController extends Controller
      */
     public function update(UpdateCharacterRequest $request, Character $character)
     {
+        /* dd($request->all()); */
         $val_data = $request->validated();
+        if ($request->has('items')) {
+            $character->items()->sync($val_data['items']);
+        } else {
+            $character->items()->sync([]);
+        }
         $character->update($val_data);
 
         return to_route('admin.characters.index');
@@ -81,6 +88,7 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character)
     {
+        $character->items()->detach();
         $character->delete();
 
         return to_route('admin.characters.index');

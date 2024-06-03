@@ -33,6 +33,43 @@
 
             </div>
 
+            <label for="items[]" class="form-label">Item used</label>
+            <div class="mb-3 d-flex gap-3 flex-wrap">
+
+
+                @foreach ($items as $item)
+                    <div class="form-check form-check-inline">
+
+                        @if ($errors->any())
+                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}"
+                                id="item-{{ $item->id }}" name="items[]"
+                                {{ in_array($item->id, old('items', [])) ? 'checked' : '' }} />
+                            <label class="form-check-label" for="item-{{ $item->id }}"> {{ $item->name }}
+                            </label>
+                        @else
+                            {{-- @dd($character->items) --}}
+
+                            <input class="form-check-input" type="checkbox" value="{{ $item->id }}"
+                                id="item-{{ $item->id }}" name="items[]"
+                                {{ $character->items->contains($item->id) ? 'checked' : '' }} />
+                            <label class="form-check-label" for="item-{{ $item->id }}"> {{ $item->name }}
+                            </label>
+                        @endif
+
+                    </div>
+                @endforeach
+
+                @error('items')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+
+
+
+
+
+
+            </div>
+
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
