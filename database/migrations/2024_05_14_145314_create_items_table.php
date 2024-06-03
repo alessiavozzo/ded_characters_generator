@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('category', 30)->nullable();
             $table->string('weight', 30)->nullable();
             $table->string('cost', 10)->nullable();
-            $table->string('damage_dice', 5);
+            $table->string('damage_dice', 5)->nullable();
             $table->timestamps();
         });
     }
