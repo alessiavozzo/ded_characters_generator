@@ -27,7 +27,7 @@ class StoreItemRequest extends FormRequest
             'category' => 'nullable|max:30',
             'weight' => 'nullable|max:30',
             'cost' => 'nullable|max:30',
-            'damage_dice' => 'nullable|max:5',
+            'damage_dice' => 'required|max:5',
         ];
     }
 }
