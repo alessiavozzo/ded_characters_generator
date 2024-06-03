@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\CharacterController;
-use App\Http\Controllers\TypeController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified'])
             'items' => 'item:slug'
         ]);
         Route::resource('types', TypeController::class)->parameters([
-            'types' => 'item:slug'
+            'types' => 'type:slug'
         ]);
     });
 
