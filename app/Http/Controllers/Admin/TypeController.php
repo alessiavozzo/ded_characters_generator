@@ -52,7 +52,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -60,7 +60,12 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $validated =  $request->validated();
+        $slug = Str::slug($request->name, '-');
+        $validated['slug'] = $slug;
+        
+        $type->update($validated);
+        return to_route('admin.types.index')->with('message', 'type editsuccessfully');
     }
 
     /**
