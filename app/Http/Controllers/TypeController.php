@@ -13,8 +13,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.types.index', ['types' => Type::paginate()]);
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -6,6 +6,7 @@ use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class TypeSeeder extends Seeder
 {
@@ -18,10 +19,10 @@ class TypeSeeder extends Seeder
         $types = json_decode($json, true);
         foreach ($types as $type) {
             $newType = new Type();
-            $newType->name= $type['name'];
-            $newType->desc= $type['desc'];
+            $newType->name = $type['name'];
+            $newType->slug = Str::slug($type['name'], '-');
+            $newType->desc = $type['desc'];
             $newType->save();
         }
-
     }
 }
